@@ -1,9 +1,15 @@
 package br.com.edras.spring_boot_course.entities;
 
+import jakarta.persistence.*;
+
 import java.util.Objects;
 
+@Entity
+@Table(name = "tb_user") // Foi necessário renomear a tabela, pois User é uma palavra reservada do H2
 public class User {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String email;
